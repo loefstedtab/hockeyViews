@@ -5,7 +5,7 @@ import { Spinner } from "../spinner/Spinner";
 
 let PlayerExcerpt = ({ player }) => {
   return (
-    <div>
+    <div className="playerCard">
       <h3>{player.season}</h3>
       <h2>{player.name}</h2>
       <h3>{player.team}</h3>
@@ -36,17 +36,13 @@ export const AllPlayers = () => {
   if (isLoading) {
     content = <Spinner text="Loading..." />;
   } else if (isSuccess) {
-    content = (
-      <section className="playerTable">
-        {sortedPlayers.map((player) => {
-          return (
-            <Link to={`/players/${player.id}`} key={player.id}>
-              <PlayerExcerpt player={player} />
-            </Link>
-          );
-        })}
-      </section>
-    );
+    content = sortedPlayers.map((player) => {
+      return (
+        <Link to={`/players/${player.id}`} key={player.id}>
+          <PlayerExcerpt player={player} />
+        </Link>
+      );
+    });
   } else if (isError) {
     content = <div>{error.toString()}</div>;
   }

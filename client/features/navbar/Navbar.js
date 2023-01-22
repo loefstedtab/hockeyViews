@@ -19,48 +19,14 @@ const Navbar = () => {
     navigate('/login');
   };
 
-
-
-  useEffect(() => {
-
-
-
-  },[dispatch] )
-
   return (
     <div className="top">
       <div className="top-left">
-        <h1>GraceShopper</h1>
+        <h1>Hockey Views</h1>
         <div className='top-center'>
           <Link className='top-item' to="/home">Home</Link>
-          <Link className='top-item' to="/products">Products</Link>
-          <Link className='top-item' to="/cart">Cart</Link>
-          {isLoggedIn ? (
-            <Link className='top-item' to="/useredit">Edit</Link>
-          ) : null }
-          {isLoggedIn && isAdmin ? (
-            <div>
-              <Link className='top-item' to="/users">Users</Link>
-            </div>
-          ) : null}
+          <Link className='top-item' to="/players">AllPlayers</Link>
         </div>
-        <nav className='top-right'>
-          {isLoggedIn ? (
-            <div>
-              {/* The navbar will show these links after you log in */}
-              {user.first_Name && user.last_Name ? <span>Welcome {user.first_Name} {user.last_Name}</span> : <span>Welcome {first_Name} {last_Name}</span> }
-              <button className='logOutButton' type="button" onClick={logoutAndRedirectHome}>
-                Logout
-              </button>
-            </div>
-          ) : (
-            <div className='userInfo'>
-              {/* The navbar will show these links before you log in */}
-              <Link to="/login">Login</Link>
-              <Link to="/signup" className='signup'>Sign Up</Link>
-            </div>
-          )}
-        </nav>
       </div>
       <hr />
     </div>

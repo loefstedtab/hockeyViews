@@ -1,21 +1,32 @@
-
-
-.chart{
+.chart {
   height: 400px;
   width: 600px;
   border: 2px solid black;
 }
 
-.allPlayers{
-  /* display: flex;
-  flex-direction: column; */
+.allPlayers {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  border: 1px  solid red;
 }
 
-.playerTable{
-  width: 75%;
+.playerCard {
+  border: 2px solid black;
+  width: 100%;
+  text-align: center;
+}
+
+.playerTable {
+  width: 600px;
   border: 2px solid black;
 }
 
-td{
+th {
+  text-decoration: underline;
+}
+td {
   text-align: center;
 }

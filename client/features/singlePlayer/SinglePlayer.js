@@ -25,6 +25,24 @@ export const SinglePlayer = () => {
         <h2>{player.name}</h2>
         <h3>{player.team}</h3>
         <h3>{player.position}</h3>
+        <table className="playerTable">
+          <thead>
+            <tr>
+            <th>Games Played</th>
+            <th>IceTime</th>
+            <th>Shifts</th>
+            <th>Game Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{player.games_played}</td>
+              <td>{player.icetime}</td>
+              <td>{player.shifts}</td>
+              <td>{player.gameScore}</td>
+            </tr>
+          </tbody>
+        </table>
         <PossesionChart player={player}/>
         <RadarChart player={player}/>
       </section>
