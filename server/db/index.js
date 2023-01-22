@@ -2,29 +2,24 @@
 
 const db = require("./db");
 const User = require("./models/User");
-const Order = require("./models/Orders");
-const Products = require("./models/Products");
-const CreditCard = require("./models/CreditCard");
-const Cart = require("./models/Cart")
+const Players = require("./models/Players")
 
+//ASSOCIATIONS MADE HERE!!!
 
-User.hasOne(CreditCard);
-CreditCard.belongsTo(User);
+// User.hasOne(CreditCard);
+// CreditCard.belongsTo(User);
 
-User.hasMany(Order);
-Order.belongsTo(User);
+// User.hasMany(Order);
+// Order.belongsTo(User);
 
-User.belongsToMany(Products, { through: Cart });
-Products.belongsToMany(User, { through: Cart });
+// User.belongsToMany(Products, { through: Cart });
+// Products.belongsToMany(User, { through: Cart });
 
-Order.belongsToMany(Products, { through: "OrderProducts" });
-Products.belongsToMany(Order, { through: "OrderProducts" });
+// Order.belongsToMany(Products, { through: "OrderProducts" });
+// Products.belongsToMany(Order, { through: "OrderProducts" });
 
 module.exports = {
   db,
   User,
-  Order,
-  Products,
-  CreditCard,
-  Cart
+  Players
 };

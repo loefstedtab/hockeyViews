@@ -1,25 +1,17 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { applyMiddleware, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import authReducer from '../features/auth/authSlice';
-import allProductsSlice from '../features/allProducts/allProductsSlice';
-import singleProductSlice from '../features/singleproduct/singleProductSlice';
-import allUsersSlice from '../features/allUsers/allUsersSlice';
-import userSlice from '../features/user/userSlice';
-import singleUserSlice from '../features/singleuser/singleUserSlice';
-import cartSlice from '../features/cart/cartSlice';
+import { apiSlice } from '../features/api/apiSlice';
+
+
+// const middleware = applyMiddleware(logger, apiSlice.middleware)
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
-    products: allProductsSlice,
-    product: singleProductSlice,
-    users: allUsersSlice,
-    user: userSlice,
-    singleUser: singleUserSlice,
-    cart: cartSlice,
-    
+    [apiSlice.reducerPath]: apiSlice.reducer
    },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
 export default store;
