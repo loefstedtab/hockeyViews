@@ -8,7 +8,7 @@ const {
 router.get('/', async (req, res, next) => {
   try{
     const players = await Players.findAll()
-    res.send(players)
+    res.json(players)
   } catch(err) {
     next(err)
   }
@@ -18,7 +18,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try{
     const player = await Players.findByPk(req.params.id)
-    res.send(player)
+    res.json(player)
   } catch(err) {
     next(err)
   }

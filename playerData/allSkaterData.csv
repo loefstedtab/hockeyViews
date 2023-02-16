@@ -1,4 +1,4 @@
-playerId,season,name,team,position,situation,games_played,icetime,shifts,gameScore,onIce_xGoalsPercentage,offIce_xGoalsPercentage,onIce_corsiPercentage,offIce_corsiPercentage,onIce_fenwickPercentage,offIce_fenwickPercentage,I_F_xGoals,I_F_points,I_F_goals,penalties,I_F_penaltyMinutes,I_F_hits,I_F_takeaways,I_F_giveaways,faceoffsWon,faceoffsLost,penaltyMinutes
+playerId,season,name,teamAbbr,position,situation,games_played,icetime,shifts,gameScore,onIce_xGoalsPercentage,offIce_xGoalsPercentage,onIce_corsiPercentage,offIce_corsiPercentage,onIce_fenwickPercentage,offIce_fenwickPercentage,I_F_xGoals,I_F_points,I_F_goals,penalties,I_F_penaltyMinutes,I_F_hits,I_F_takeaways,I_F_giveaways,faceoffsWon,faceoffsLost,penaltyMinutes
 8476474,2022,Stefan Noesen,CAR,R,all,43,31459.0,697.0,31.97,0.7,0.53,0.69,0.56,0.7,0.55,11.88,22.0,8.0,8.0,19.0,58.0,16.0,15.0,21.0,16.0,19.0
 8480950,2022,Ilya Lyubushkin,BUF,D,all,31,26559.0,683.0,6.2,0.41,0.5,0.43,0.54,0.43,0.52,0.41,8.0,0.0,16.0,32.0,55.0,10.0,7.0,0.0,0.0,32.0
 8480185,2022,Eetu Luostarinen,FLA,C,all,48,44825.0,1025.0,25.86,0.48,0.54,0.48,0.55,0.48,0.54,9.17,21.0,10.0,7.0,18.0,40.0,29.0,26.0,58.0,74.0,18.0

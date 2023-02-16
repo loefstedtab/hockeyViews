@@ -13,7 +13,11 @@
   border: 1px  solid red;
 }
 
-.playerCard {
+#image-track{
+  overflow-x: scroll;
+}
+
+#playerCard {
   border: 2px solid black;
   width: 100%;
   text-align: center;
@@ -30,3 +34,4 @@ th {
 td {
   text-align: center;
 }
+

@@ -2,24 +2,23 @@
 
 const db = require("./db");
 const User = require("./models/User");
-const Players = require("./models/Players")
+const Players = require("./models/Players");
+const Teams = require("./models/Teams")
 
 //ASSOCIATIONS MADE HERE!!!
-
-// User.hasOne(CreditCard);
-// CreditCard.belongsTo(User);
-
-// User.hasMany(Order);
-// Order.belongsTo(User);
-
-// User.belongsToMany(Products, { through: Cart });
-// Products.belongsToMany(User, { through: Cart });
-
-// Order.belongsToMany(Products, { through: "OrderProducts" });
-// Products.belongsToMany(Order, { through: "OrderProducts" });
+Teams.hasMany(Players,{
+  foreignKey:"teamAbbr",
+  targetKey: 'teamAbbr'
+})
+Players.belongsTo(Teams,{
+  foreignKey:'teamAbbr',
+  sourceKey: 'teamAbbr'
+}
+  )
 
 module.exports = {
   db,
   User,
-  Players
+  Players,
+  Teams
 };

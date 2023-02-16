@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { AllPlayers } from "../features/players/AllPlayers";
 import { SinglePlayer } from "../features/singlePlayer/SinglePlayer";
+import { TeamRow } from "../features/teams/TeamRow";
 import { me } from "./store";
 
 /**
@@ -10,9 +11,6 @@ import { me } from "./store";
  */
 
 const AppRoutes = () => {
-  // const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  // const isAdmin = useSelector((state) => state.auth.me.isAdmin);
-  // const isLoggedIn = true
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,6 +24,7 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/players" element={<AllPlayers />} />
         <Route path="/players/:playerId" element={<SinglePlayer />} />
+        <Route path="/singleTeam" element={<TeamRow />} />
       </Routes>
       {/* <Routes>
         <Route path="/" element={<Home />} />

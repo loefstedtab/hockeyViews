@@ -10,7 +10,7 @@ const Players = db.define("player", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  team: {
+  teamAbbr: {
     type: Sequelize.STRING,
     allowNull: false,
   },
