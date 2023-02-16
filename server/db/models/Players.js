@@ -2,6 +2,10 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 
 const Players = db.define("player", {
+  img:{
+    type:Sequelize.STRING,
+    defaultValue: 'logo.png'
+  },
   season: {
     type: Sequelize.STRING,
     allowNull: false,

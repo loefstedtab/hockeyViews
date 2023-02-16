@@ -4,24 +4,51 @@
   border: 2px solid black;
 }
 
-.allPlayers {
+
+
+/* .allPlayers {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   border: 1px  solid red;
+} */
+
+
+/* .allPlayers{
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+} */
+#image-track{
+  display: flex;
+  gap: 4vmin;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  transition: all 0.2s;
+  transform: scale(0.98);
+  will-change: transform;
+  user-select: none;
+  cursor: pointer;
 }
 
-#image-track{
-  overflow-x: scroll;
+#image-track.active{
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  transform: scale(1);
 }
+
 
 #playerCard {
   border: 2px solid black;
-  width: 100%;
+  height: 56vmin;
+  width: 40vmin;
   text-align: center;
+  margin: .5rem;
 }
+
 
 .playerTable {
   width: 600px;

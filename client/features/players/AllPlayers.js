@@ -1,12 +1,16 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useGetPlayersQuery, useGetTeamsQuery, useGetTeamQuery } from "../api/apiSlice";
+import {
+  useGetPlayersQuery,
+  useGetTeamsQuery,
+  useGetTeamQuery,
+} from "../api/apiSlice";
 import { Spinner } from "../spinner/Spinner";
-import {TeamRow} from "../teams/TeamRow"
+import { TeamRow } from "../teams/TeamRow";
 
 let PlayerExcerpt = ({ player }) => {
   return (
-    <div id="playerCard">
+    <div key={player.id} id="playerCard">
       {/* <img className="image" src="logo.png" draggable="false" /> */}
       <h3>{player.season}</h3>
       <h2>{player.name}</h2>
@@ -16,9 +20,8 @@ let PlayerExcerpt = ({ player }) => {
   );
 };
 
-
-
 export const AllPlayers = () => {
+
   const {
     data: players = [],
     isLoading,
@@ -27,12 +30,7 @@ export const AllPlayers = () => {
     error,
   } = useGetPlayersQuery();
 
-  const {
-    data: teams
-  } = useGetTeamsQuery()
-  console.log(teams)
-
-
+  const { data: teams } = useGetTeamsQuery();
 
   const sortedPlayers = useMemo(() => {
     const sortedPlayers = players.slice();
@@ -40,28 +38,13 @@ export const AllPlayers = () => {
     return sortedPlayers;
   }, [players]);
 
-  console.log("These are the players", players);
 
-  let content;
-
-  if (isLoading) {
-    content = <Spinner text="Loading..." />;
-  } else if (isSuccess) {
-    content = sortedPlayers.map((player) => {
-      return (
-        <Link to={`/players/${player.id}`} key={player.id}>
-          <PlayerExcerpt player={player} />
-        </Link>
-      );
-    });
-  } else if (isError) {
-    content = <div>{error.toString()}</div>;
-  }
-
-  return <div className="allPlayers">
-    {teams? teams.map((team) => {
-    return(
-    <TeamRow team={team}  key={team.id}/>)
-    }) : null}
-     </div>;
+  return (
+    <div className="allPlayers">
+      {teams ? teams.map((team) => {
+            return <TeamRow team={team} key={team.id} />;
+          })
+        : null}
+    </div>
+  );
 };

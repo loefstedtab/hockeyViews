@@ -8,4 +8,4 @@ export const Spinner = ({ text = '', size = '5em' }) => {
       <div className="loader" style={{ height: size, width: size }} />
     </div>
   )
-}
+};
