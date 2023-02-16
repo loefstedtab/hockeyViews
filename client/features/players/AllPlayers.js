@@ -30,7 +30,13 @@ export const AllPlayers = () => {
     error,
   } = useGetPlayersQuery();
 
-  const { data: teams } = useGetTeamsQuery();
+  const { data: teams = [] } = useGetTeamsQuery();
+
+  const sortedTeams = useMemo(() => {
+    const sortedTeams = teams.slice();
+    sortedTeams.sort((a,b) => a.abbreviation.localeCompare(b.abbreviation))
+    return sortedTeams
+  }, [teams])
 
   const sortedPlayers = useMemo(() => {
     const sortedPlayers = players.slice();
@@ -41,7 +47,7 @@ export const AllPlayers = () => {
 
   return (
     <div className="allPlayers">
-      {teams ? teams.map((team) => {
+      {sortedTeams ? sortedTeams.map((team) => {
             return <TeamRow team={team} key={team.id} />;
           })
         : null}
