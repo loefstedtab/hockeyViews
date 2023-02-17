@@ -1,69 +1,39 @@
-import React, { useEffect, useMemo, useLayoutEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useGetTeamsQuery, useGetTeamQuery } from "../api/apiSlice";
+import useImageTrack from "./useImageTrack";
+import PlayerCard from "../singlePlayer/PlayerCard";
+import "./teamRow.css";
 
 export const TeamRow = ({ team }) => {
   let teamPlayers = team.players;
 
-  // useLayoutEffect(() => {
-  //   if(teamPlayers)
-  //   {const slider = document.getElementById("image-track");
-  //   let isDown = false;
-  //   let startX;
-  //   let scrollLeft;
-
-  //   slider.addEventListener("mousedown", (e) => {
-  //     isDown = true;
-  //     slider.classList.add("active");
-  //     startX = e.pageX - slider.offsetLeft;
-  //     scrollLeft = slider.scrollLeft;
-  //   });
-  //   slider.addEventListener("mouseleave", () => {
-  //     isDown = false;
-  //     slider.classList.remove("active");
-  //   });
-  //   slider.addEventListener("mouseup", () => {
-  //     isDown = false;
-  //     slider.classList.remove("active");
-  //   });
-  //   slider.addEventListener("mousemove", (e) => {
-  //     if (!isDown) return;
-  //     e.preventDefault();
-  //     const x = e.pageX - slider.offsetLeft;
-  //     const walk = (x - startX) * 3; //scroll-fast
-  //     slider.scrollLeft = scrollLeft - walk;
-  //   })}
-  // },[]);
+  const imageTrackWrapperRef = useRef();
+  const { isDragging } = useImageTrack(imageTrackWrapperRef);
 
   return (
     <div>
       <div>
         {team.city} {team.name}
       </div>
-      <div id="image-track">
-        {teamPlayers
-          ? teamPlayers.map((player) => {
+      <div className="allPlayers">
+        <div className="image-track-wrapper" ref={imageTrackWrapperRef}>
+          <div
+            className="image-track"
+            role="list"
+            style={{ pointerEvents: isDragging ? "none" : undefined }}
+          >
+            {teamPlayers.map((player, i) => {
               return (
-                <Link to={`/players/${player.id}`}>
-                  <div
-                    id="playerCard"
-                    key={player.id}
-                    style={{
-                      backgroundImage: `url(/${player.img})`,
-                      width: "40vmin",
-                      height: "56vmin",
-                      objectFit: "cover",
-                      objectPosition: "100% center",
-                    }}
-                    draggable={false}
-                  >
-                    <h2>{player.name}</h2>
-                    <h2>{player.teamAbbr}</h2>
-                  </div>
-                </Link>
+                <div
+                  key={`image-track-item-${i}`}
+                  role="image-track_item"
+                >
+                  <PlayerCard player={player} key={player.id}/>
+                </div>
               );
-            })
-          : null}
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );

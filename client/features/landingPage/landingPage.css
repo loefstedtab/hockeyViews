@@ -1,0 +1,80 @@
+.landingPage {
+  height: 95vh;
+  width: 100vw;
+  background-image: url("/public/hockeyRink.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow-y: hidden;
+}
+
+#nav-toggle {
+  height: 5rem;
+  width: 5rem;
+  position: fixed;
+  z-index: 3;
+  left: 50%;
+  bottom: 3rem;
+  transform: translateX(-50%);
+  background-color: rgb(88, 88, 88, 0.5);
+  border: none;
+  border-radius: 5rem/5rem;
+  outline: none;
+  box-shadow: 0rem 0rem 4rem rgba(0 0 0 / 35%);
+  cursor: pointer;
+  transition: transform, background-color;
+  transition-timing-function: ease;
+  transition-duration: 400ms;
+  box-shadow: -6px 5px 11px 0px rgba(0, 0, 0, 0.56);
+  -webkit-box-shadow: -6px 5px 11px 0px rgba(0, 0, 0, 0.56);
+  -moz-box-shadow: -6px 5px 11px 0px rgba(0, 0, 0, 0.56);
+}
+
+#nav-toggle:hover {
+  transform: translateX(-50%) scale(1.04) rotate(45deg);
+  background-color: rgb(88, 88, 88, 1);
+}
+
+#nav-toggle:active {
+  transform: translateX(-50%) scale(0.96);
+}
+
+#nav-toggle:hover > .open {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#nav-toggle > i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  color: rgb(246, 231, 224);
+  font-size: 1.75rem;
+  opacity: 0;
+  transition: transform, opacity;
+  transition-timing-function: ease;
+  transition-duration: 400ms;
+}
+
+#nav-toggle > .close {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.rotatingText {
+  opacity: 0;
+  transform: translate(10%, -25%) rotate(-0.607721rad);
+}
+
+#nav-toggle:hover > .rotatingText {
+  opacity: 1;
+  transition-timing-function: ease;
+  transition-duration: 400ms;
+  transform: translate(75%) rotate(90deg);
+}
+
+#nav-toggle > .rotatingText {
+  transition-timing-function: ease;
+  transition-duration: 400ms;
+}

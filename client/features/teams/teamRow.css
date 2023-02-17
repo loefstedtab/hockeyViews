@@ -1,0 +1,31 @@
+.allPlayers {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-track-wrapper{
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.image-track-wrapper::-webkit-scrollbar{
+  display: none;
+}
+
+.image-track{
+  height: 100%;
+  display: flex;
+  gap: 4vmin;
+}
+
+.image-track:active{
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  transform: scale(1);
+}

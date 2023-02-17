@@ -1,41 +1,24 @@
+body{
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+  /* background-color: black; */
+}
+
+.landingPage{
+  height: 100vh;
+  width: 100vw;
+  background-image: url('/public/hockeyRink.jpeg');
+  background-size: cover;
+  /* background-color: blue; */
+  margin: 0;
+}
+
 .chart {
   height: 400px;
   width: 600px;
   border: 2px solid black;
 }
-
-#image-track{
-  display: flex;
-  gap: 4vmin;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  transition: all 0.2s;
-  transform: scale(0.98);
-  will-change: transform;
-  user-select: none;
-  cursor: pointer;
-}
-
-#image-track:active{
-  cursor: grabbing;
-  cursor: -webkit-grabbing;
-  transform: scale(1);
-}
-
-
-#playerCard {
-  border: 2px solid black;
-  height: 56vmin;
-  width: 40vmin;
-  text-align: center;
-  margin: .5rem;
-}
-
-#playerCard:hover{
-  transform: scale(1.2);
-}
-
 
 .playerTable {
   width: 600px;

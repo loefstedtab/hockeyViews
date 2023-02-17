@@ -1,0 +1,17 @@
+
+.playerCard {
+  border: 2px solid black;
+  border-radius: .3rem;
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: 100% center;
+  color: black;
+}
+
+.playerCard:hover {
+  transform: scale(.9);
+  color: white;
+}
+
+
