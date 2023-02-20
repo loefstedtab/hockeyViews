@@ -2,6 +2,10 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 
 const Players = db.define("player", {
+  playerId:{
+    type:Sequelize.STRING,
+    primaryKey: true,
+  },
   img:{
     type:Sequelize.STRING,
     defaultValue: 'logo.png'
@@ -10,9 +14,9 @@ const Players = db.define("player", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  name: {
+  shooterName: {
     type: Sequelize.STRING,
-    allowNull: false,
+    unique: true,
   },
   teamAbbr: {
     type: Sequelize.STRING,

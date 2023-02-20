@@ -1,6 +1,6 @@
 "use strict";
 
-const { db, Players, Teams} = require("../server/db");
+const { db, Players, Teams, Shots} = require("../server/db");
 const fs = require("fs");
 const { parse } = require("csv-parse");
 
@@ -23,7 +23,7 @@ fs.createReadStream("./playerData/allSkaterData.csv")
   })
   .on("end", function () {
     // 👇 log the result array
-    console.log("parsed csv data:");
+    console.log("parsed csv data: players");
   });
 
   const teamData = []
@@ -45,7 +45,30 @@ fs.createReadStream("./playerData/allSkaterData.csv")
   })
   .on("end", function () {
     // 👇 log the result array
-    console.log("parsed csv data:");
+    console.log("parsed csv data: teams");
+  });
+
+
+  const shotData = []
+
+  fs.createReadStream("./shotData/shots_2022.csv")
+  .pipe(
+    parse({
+      delimiter: ",",
+      columns: true,
+      ltrim: true,
+    })
+  )
+  .on("data", function (row) {
+    // 👇 push the object row into the array
+    shotData.push(row);
+  })
+  .on("error", function (error) {
+    console.log(error.message);
+  })
+  .on("end", function () {
+    // 👇 log the result array
+    console.log("parsed csv data: shots");
   });
 /**
  * seed - this function clears the database, updates tables to
@@ -58,6 +81,7 @@ async function seed() {
 
   Players.bulkCreate(playerData)
   Teams.bulkCreate(teamData)
+  Shots.bulkCreate(shotData)
 
   console.log('Players successfully seeded')
 }
