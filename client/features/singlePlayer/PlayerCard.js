@@ -12,6 +12,7 @@ function PlayerCard({ player }) {
           backgroundImage: `url(/${player.img})`,
         }}
         draggable={false}
+        key={player.id}
       >
         <h2 className="playerCardInfo">{player.shooterName}</h2>
         <h2 className="playerCardInfo">{player.teamAbbr}</h2>

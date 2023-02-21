@@ -38,7 +38,6 @@ export const ShotPositionChart = ({player}) => {
           tickValues={[89]}
           style={{
             axis: {stroke: "transparent"},
-            // ticks: {stroke: "transparent"},
             tickLabels: {fill: "transparent"},
             grid: {
               stroke: ({ tick }) => (tick === 89 ? "red" : "transparent"),
