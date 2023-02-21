@@ -4,7 +4,6 @@ const db = require("../db");
 const Players = db.define("player", {
   playerId:{
     type:Sequelize.STRING,
-    primaryKey: true,
   },
   img:{
     type:Sequelize.STRING,

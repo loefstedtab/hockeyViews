@@ -13,7 +13,7 @@ function PlayerCard({ player }) {
         }}
         draggable={false}
       >
-        <h2 className="playerCardInfo">{player.name}</h2>
+        <h2 className="playerCardInfo">{player.shooterName}</h2>
         <h2 className="playerCardInfo">{player.teamAbbr}</h2>
       </div>
     </Link>

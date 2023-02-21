@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const {
-   Players ,
+   Players, Shots ,
 } = require("../db");
 
 
@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
 //router to get a single player
 router.get('/:id', async (req, res, next) => {
   try{
-    const player = await Players.findByPk(req.params.id)
+    const player = await Players.findByPk(req.params.id, {include: Shots})
     res.json(player)
   } catch(err) {
     next(err)

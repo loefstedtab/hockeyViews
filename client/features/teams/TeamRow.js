@@ -15,7 +15,7 @@ export const TeamRow = ({ team }) => {
       <div>
         {team.city} {team.name}
       </div>
-      <div className="allPlayers">
+      <div className="teamRow">
         <div className="image-track-wrapper" ref={imageTrackWrapperRef}>
           <div
             className="image-track"

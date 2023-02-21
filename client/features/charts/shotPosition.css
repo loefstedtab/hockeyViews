@@ -1,0 +1,12 @@
+.shotPositionBackground{
+  border: 2px solid black;
+  object-fit: cover;
+  object-position: 100% center;
+  color: black;
+}
+
+.shotPositionChart{
+  height: 400px;
+  width: 600px;
+  border: 2px solid black;
+}

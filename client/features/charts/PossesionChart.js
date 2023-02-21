@@ -1,14 +1,8 @@
 import React from "react";
-
 import {
   VictoryChart,
-  VictoryAxis,
-  VictoryTheme,
-  VictoryPolarAxis,
   VictoryBar,
-  VictoryPie,
   VictoryGroup,
-  VictoryLabel,
 } from "victory";
 
 

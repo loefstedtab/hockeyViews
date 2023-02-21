@@ -7,6 +7,7 @@ import { SinglePlayer } from "../features/singlePlayer/SinglePlayer";
 import { TeamRow } from "../features/teams/TeamRow";
 import { Navbar } from "../features/navbar/Navbar";
 import { me } from "./store";
+import { ShotPositionChart } from "../features/charts/ShotPositionChart";
 
 /**
  * COMPONENT
